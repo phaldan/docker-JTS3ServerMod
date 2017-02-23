@@ -16,6 +16,7 @@ RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
 
 VOLUME /JTS3ServerMod/config /JTS3ServerMod/plugins /JTS3ServerMod/log
 
-ENTRYPOINT ["/usr/bin/java", "-jar", "JTS3ServerMod.jar", "-log", "log/JTS3ServerMod_InstanceManager.log"]
+COPY docker-entrypoint.sh .
+ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["-mx30M"]
 
