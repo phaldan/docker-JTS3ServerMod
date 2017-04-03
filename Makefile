@@ -1,4 +1,5 @@
 MAKE=make -s
+UPGRADE_SCRIPT=upgrade.sh
 DOCKER_CLI=$(shell which docker.io || which docker)
 DOCKER_IMAGE=phaldan/jts3servermod
 DOCKER_CONTAINER=jts3servermod
@@ -27,4 +28,9 @@ clear:
 
 logs:
 	$(DOCKER_CLI) logs $(DOCKER_CONTAINER)
+
+upgrade: update
+	curl -o $(UPGRADE_SCRIPT) https://raw.githubusercontent.com/phaldan/docker-tags-upgrade/master/$(UPGRADE_SCRIPT)
+	chmod +x $(UPGRADE_SCRIPT)
+	./$(UPGRADE_SCRIPT) "$(DOCKER_IMAGE)" "$(VERSION)"
 
