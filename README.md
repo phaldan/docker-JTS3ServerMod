@@ -4,7 +4,8 @@
 
 Size optimised docker image based on [openjdk:8-jre-alpine](https://hub.docker.com/_/openjdk/) image:
 
-* `6.3.3`, `6.3`, `6`, `latest` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/1fb73cb2c921b7c163ba5c923a249173d81d2421/Dockerfile))
+* `6.4.0`, `6.4`, `6`, `latest` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/d4043407f3fe48a721939df3816593b5d6865e4c/Dockerfile))
+* `6.3.3`, `6.3` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/1fb73cb2c921b7c163ba5c923a249173d81d2421/Dockerfile))
 &nbsp;
 
 ## Run JTS3ServerMod
@@ -60,6 +61,7 @@ config/
     ├── badchannelname.cfg
     ├── badnickname.cfg
     ├── channelnotifymessages.cfg
+    ├── idlecheckmessages.cfg
     ├── idlemessages.cfg
     ├── JTS3ServerMod_server.cfg
     ├── mutemessages.cfg
