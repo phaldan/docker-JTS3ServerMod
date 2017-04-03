@@ -1,13 +1,19 @@
-.PHONY : all build run clear
-VERSION?=6.3.3
+MAKE=make -s
 DOCKER_CLI=$(shell which docker.io || which docker)
 DOCKER_IMAGE=phaldan/jts3servermod
 DOCKER_CONTAINER=jts3servermod
+VERSION?=6.3.3
+
+.PHONY : all build update run clear
 
 all: build
 
 build:
 	$(DOCKER_CLI) build --build-arg JTS3_SERVER_MOD_VERSION=$(VERSION) -t $(DOCKER_IMAGE):$(VERSION) .
+
+update:
+	$(DOCKER_CLI) pull $(shell sed -n 's/^FROM //p' Dockerfile)
+	$(MAKE) build
 
 run:
 	$(DOCKER_CLI) run  -d --name $(DOCKER_CONTAINER) \
