@@ -4,7 +4,7 @@ DOCKER_IMAGE=phaldan/jts3servermod
 DOCKER_CONTAINER=jts3servermod
 VERSION?=6.3.3
 
-.PHONY : all build update run clear
+.PHONY : all build update run clear logs
 
 all: build
 
@@ -24,4 +24,7 @@ run:
 clear:
 	$(DOCKER_CLI) stop $(DOCKER_CONTAINER)
 	$(DOCKER_CLI) rm $(DOCKER_CONTAINER)
+
+logs:
+	$(DOCKER_CLI) logs $(DOCKER_CONTAINER)
 
