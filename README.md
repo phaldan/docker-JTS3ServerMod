@@ -4,16 +4,14 @@
 
 Size optimised docker image based on [openjdk:8-jre-alpine](https://hub.docker.com/_/openjdk/) image:
 
-* `6.4.0`, `6.4`, `6`, `latest` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/d4043407f3fe48a721939df3816593b5d6865e4c/Dockerfile))
+* `6.4.2`, `6.4`, `6`, `latest` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/8ef94df5b47ab3ed0dfd03cfa10eefb510447a0f/Dockerfile))
 * `6.3.3`, `6.3` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/1fb73cb2c921b7c163ba5c923a249173d81d2421/Dockerfile))
-&nbsp;
 
 ## Run JTS3ServerMod
 
 ```
 $ docker run --name jts3servermod -d -v ${PWD}/config:/JTS3ServerMod/config -v ${PWD}/log:/JTS3ServerMod/log phaldan/jts3servermod
 ```
-&nbsp;
 
 ## What is JTS3ServerMod
 
@@ -38,14 +36,12 @@ $ docker run --name jts3servermod -d -v ${PWD}/config:/JTS3ServerMod/config -v $
 * Send a message every X minutes to virtual server or a special channel
 * Send a welcome message to every connecting client, can send a special welcome message to specified server group members
 * !lastseen chat command to see somebody's last online time.
-&nbsp;
 
 ## Configure
 
 The following describes the basic configuration of JTS3ServerMod. A more detailed documention can be found on the [official page](https://www.stefan1200.de/forum/index.php?topic=2.0). 
 The most important file is the main config, which is located at `config/JTS3ServerMod_InstanceManager.cfg`. Within the main config file you can set global admins and register server instances ([example](https://github.com/phaldan/docker-JTS3ServerMod/blob/master/config/JTS3ServerMod_InstanceManager.cfg)). 
 Each server has his own config file (like `config/server1/JTS3ServerMod_server.cfg`) for enable/disable functionalities and define query connection settings to your TeamSpeak 3 server ([example](https://github.com/phaldan/docker-JTS3ServerMod/blob/master/config/server1/JTS3ServerMod_server.cfg)). The default server config is a minimal version and can be extended with a lot settings for each functionality ([example](https://github.com/phaldan/docker-JTS3ServerMod/blob/master/config/JTS3ServerMod_server_example.cfg)). Additionally to the server config each server has a few more config files, which mostly define bot-messages for different functionalities.
-&nbsp;
 
 ### Directory structure with a single server instance
 
