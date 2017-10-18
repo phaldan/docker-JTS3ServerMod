@@ -10,7 +10,11 @@ VERSION?=6.4.0
 all: build
 
 build:
-	$(DOCKER_CLI) build --build-arg JTS3_SERVER_MOD_VERSION=$(VERSION) -t $(DOCKER_IMAGE):$(VERSION) .
+	$(DOCKER_CLI) build \
+		--build-arg JTS3_SERVER_MOD_VERSION=$(VERSION) \
+		--build-arg VCS_REF=`git rev-parse --short HEAD` \
+		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+		-t $(DOCKER_IMAGE):$(VERSION) .
 
 update:
 	$(DOCKER_CLI) pull $(shell sed -n 's/^FROM //p' Dockerfile)
@@ -29,7 +33,7 @@ clear:
 logs:
 	$(DOCKER_CLI) logs $(DOCKER_CONTAINER)
 
-upgrade: update
+release: update
 	curl -o $(UPGRADE_SCRIPT) https://raw.githubusercontent.com/phaldan/docker-tags-upgrade/master/$(UPGRADE_SCRIPT)
 	chmod +x $(UPGRADE_SCRIPT)
 	./$(UPGRADE_SCRIPT) "$(DOCKER_IMAGE)" "$(VERSION)"
