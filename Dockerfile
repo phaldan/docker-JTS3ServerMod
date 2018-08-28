@@ -2,7 +2,7 @@ FROM openjdk:8-jre-alpine
 
 MAINTAINER Philipp Daniels <philipp.daniels@gmail.com>
 
-ARG JTS3_SERVER_MOD_VERSION=6.4.5
+ARG JTS3_SERVER_MOD_VERSION=6.5.0
 ARG VCS_REF
 ARG BUILD_DATE
 
