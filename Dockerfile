@@ -1,17 +1,18 @@
+FROM alpine:3.8@sha256:621c2f39f8133acb8e64023a94dbdf0d5ca81896102b9e57c0dc184cadaf5528
+
+ENV JTS3_SERVER_MOD_VERSION=6.5.0
+RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
+  apk add --no-cache libarchive-tools && \
+  wget -qO- "https://www.stefan1200.de/downloads/JTS3ServerMod_${JTS3_SERVER_MOD_VERSION}.zip" | bsdtar -xf- && \
+  rm -R /JTS3ServerMod/JTS3ServerMod-Windows* /JTS3ServerMod/documents/ /JTS3ServerMod/tools/
+
+
 FROM openjdk:8u171-jre-alpine3.8@sha256:e3168174d367db9928bb70e33b4750457092e61815d577e368f53efb29fea48b
-
 MAINTAINER Philipp Daniels <philipp.daniels@gmail.com>
-
 ENV JTS3_SERVER_MOD_VERSION=6.5.0
 
 WORKDIR /JTS3ServerMod
-
-RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
-  apk add --no-cache libarchive-tools && \
-  wget -qO- "https://www.stefan1200.de/downloads/JTS3ServerMod_${JTS3_SERVER_MOD_VERSION}.zip" | bsdtar -xf- --strip 1 && \
-  apk del --purge --no-cache libarchive-tools && \
-  rm -R JTS3ServerMod-Windows* documents/ tools/
-
+COPY --from=0 /JTS3ServerMod .
 VOLUME /JTS3ServerMod/config /JTS3ServerMod/plugins /JTS3ServerMod/log
 
 COPY docker-entrypoint.sh .
