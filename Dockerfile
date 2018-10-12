@@ -7,10 +7,9 @@ ENV JTS3_SERVER_MOD_VERSION=6.5.0
 WORKDIR /JTS3ServerMod
 
 RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
-  apk add --no-cache libarchive-tools wget && \
-  update-ca-certificates && \
+  apk add --no-cache libarchive-tools && \
   wget -qO- "https://www.stefan1200.de/downloads/JTS3ServerMod_${JTS3_SERVER_MOD_VERSION}.zip" | bsdtar -xf- --strip 1 && \
-  apk del --purge --no-cache libarchive-tools wget && \
+  apk del --purge --no-cache libarchive-tools && \
   rm -R JTS3ServerMod-Windows* documents/ tools/
 
 VOLUME /JTS3ServerMod/config /JTS3ServerMod/plugins /JTS3ServerMod/log
