@@ -20,12 +20,11 @@ LABEL org.label-schema.schema-version="1.0" \
 WORKDIR /JTS3ServerMod
 
 RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
-  apk add --no-cache unzip wget && \
+  apk add --no-cache libarchive-tools wget && \
   update-ca-certificates && \
-  wget "https://www.stefan1200.de/downloads/JTS3ServerMod_${JTS3_SERVER_MOD_VERSION}.zip" -O archive.zip && \
-  unzip archive.zip -d / && \
-  apk del --purge --no-cache unzip wget && \
-  rm -R archive.zip JTS3ServerMod-Windows* documents/ tools/
+  wget -qO- "https://www.stefan1200.de/downloads/JTS3ServerMod_${JTS3_SERVER_MOD_VERSION}.zip" | bsdtar -xf- --strip 1 && \
+  apk del --purge --no-cache libarchive-tools wget && \
+  rm -R JTS3ServerMod-Windows* documents/ tools/
 
 VOLUME /JTS3ServerMod/config /JTS3ServerMod/plugins /JTS3ServerMod/log
 
