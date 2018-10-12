@@ -2,20 +2,7 @@ FROM openjdk:8u171-jre-alpine3.8@sha256:e3168174d367db9928bb70e33b4750457092e618
 
 MAINTAINER Philipp Daniels <philipp.daniels@gmail.com>
 
-ARG JTS3_SERVER_MOD_VERSION=6.5.0
-ARG VCS_REF
-ARG BUILD_DATE
-
-LABEL org.label-schema.schema-version="1.0" \
-      org.label-schema.build-date=${BUILD_DATE} \
-      org.label-schema.name="JTS3ServerMod" \
-      org.label-schema.version="${JTS3_SERVER_MOD_VERSION}" \
-      org.label-schema.description="JTS3ServerMod is a Teamspeak 3 server bot written in Java language" \
-      org.label-schema.url="https://www.stefan1200.de/forum/index.php?topic=2.0" \
-      org.label-schema.usage="https://www.stefan1200.de/documentation/jts3servermod/readme.html" \
-      org.label-schema.vcs-url="https://github.com/phaldan/docker-JTS3ServerMod" \
-      org.label-schema.vcs-ref=${VCS_REF} \
-      org.label-schema.vendor="PhALDan"
+ENV JTS3_SERVER_MOD_VERSION=6.5.0
 
 WORKDIR /JTS3ServerMod
 
@@ -32,3 +19,15 @@ COPY docker-entrypoint.sh .
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["-mx30M"]
 
+ARG VCS_REF
+ARG BUILD_DATE
+LABEL org.label-schema.schema-version="1.0" \
+      org.label-schema.build-date=${BUILD_DATE} \
+      org.label-schema.name="JTS3ServerMod" \
+      org.label-schema.version="${JTS3_SERVER_MOD_VERSION}" \
+      org.label-schema.description="JTS3ServerMod is a Teamspeak 3 server bot written in Java language" \
+      org.label-schema.url="https://www.stefan1200.de/forum/index.php?topic=2.0" \
+      org.label-schema.usage="https://www.stefan1200.de/documentation/jts3servermod/readme.html" \
+      org.label-schema.vcs-url="https://github.com/phaldan/docker-JTS3ServerMod" \
+      org.label-schema.vcs-ref=${VCS_REF} \
+      org.label-schema.vendor="PhALDan"
