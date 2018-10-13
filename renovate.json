@@ -1,5 +1,9 @@
 {
   "extends": [
     "config:base"
+  ],
+  "enabledManagers": [
+    "docker-compose",
+    "dockerfile"
   ]
 }
