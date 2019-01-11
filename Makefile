@@ -15,10 +15,6 @@ build:
 		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
 		-t $(DOCKER_IMAGE):$(VERSION) .
 
-update:
-	$(DOCKER_CLI) pull $(shell sed -n 's/^FROM //p' Dockerfile)
-	$(MAKE) build
-
 run:
 	$(DOCKER_CLI) run  -d --name $(DOCKER_CONTAINER) \
 	-v ${PWD}/config:/JTS3ServerMod/config \
@@ -32,7 +28,7 @@ clear:
 logs:
 	$(DOCKER_CLI) logs $(DOCKER_CONTAINER)
 
-release: update
+release: build
 	curl -o $(UPGRADE_SCRIPT) https://raw.githubusercontent.com/phaldan/docker-tags-upgrade/master/$(UPGRADE_SCRIPT)
 	chmod +x $(UPGRADE_SCRIPT)
 	./$(UPGRADE_SCRIPT) "$(DOCKER_IMAGE)" "$(VERSION)"
