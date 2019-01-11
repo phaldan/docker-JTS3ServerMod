@@ -1,6 +1,6 @@
 FROM alpine:3.8@sha256:46e71df1e5191ab8b8034c5189e325258ec44ea739bba1e5645cff83c9048ff1
 
-ENV JTS3_SERVER_MOD_VERSION=6.5.0
+ENV JTS3_SERVER_MOD_VERSION=6.5.4
 RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
   apk add --no-cache libarchive-tools && \
   wget -qO- "https://www.stefan1200.de/downloads/JTS3ServerMod_${JTS3_SERVER_MOD_VERSION}.zip" | bsdtar -xf- && \
@@ -9,7 +9,7 @@ RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
 
 FROM openjdk:8u171-jre-alpine3.8@sha256:e3168174d367db9928bb70e33b4750457092e61815d577e368f53efb29fea48b
 MAINTAINER Philipp Daniels <philipp.daniels@gmail.com>
-ENV JTS3_SERVER_MOD_VERSION=6.5.0
+ENV JTS3_SERVER_MOD_VERSION=6.5.4
 
 WORKDIR /JTS3ServerMod
 COPY --from=0 /JTS3ServerMod .

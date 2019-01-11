@@ -3,7 +3,7 @@ UPGRADE_SCRIPT=upgrade.sh
 DOCKER_CLI=$(shell which docker.io || which docker)
 DOCKER_IMAGE=phaldan/jts3servermod
 DOCKER_CONTAINER=jts3servermod
-VERSION?=6.5.0
+VERSION?=6.5.4
 
 .PHONY : all build update run clear logs release
 
