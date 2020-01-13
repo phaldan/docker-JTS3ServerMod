@@ -7,7 +7,7 @@ RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
   rm -R /JTS3ServerMod/JTS3ServerMod-Windows* /JTS3ServerMod/documents/ /JTS3ServerMod/tools/
 
 
-FROM openjdk:8u171-jre-alpine3.8@sha256:8fce9c197de91e925595a74e159b82b589f70baf2e086f6e63a8b8c8e193a8ca
+FROM openjdk:8u212-jre-alpine3.9@sha256:f362b165b870ef129cbe730f29065ff37399c0aa8bcab3e44b51c302938c9193
 MAINTAINER Philipp Daniels <philipp.daniels@gmail.com>
 ENV JTS3_SERVER_MOD_VERSION=6.5.6
 
