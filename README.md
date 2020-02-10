@@ -4,7 +4,7 @@
 
 Size optimised docker image based on [openjdk:8-jre-alpine](https://hub.docker.com/_/openjdk/) image:
 
-* `6.5.6`, `6.5`, `6`, `latest` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/9a5460343d5a1ef8f166d5e18111df8a9ad1c6c2/Dockerfile))
+* `6.5.7`, `6.5`, `6`, `latest` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/2808371df66a99a0c2182c25ef60b0e6bbe0def3/Dockerfile))
 * `6.4.5`, `6.4` ([Dockerfile](https://github.com/phaldan/docker-JTS3ServerMod/blob/d854cd3cfa24b65b5dca2f05c17814e7888a3317/Dockerfile))
 
 ## Run JTS3ServerMod
