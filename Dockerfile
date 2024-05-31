@@ -14,7 +14,7 @@ RUN cp -R /tmp/dl/JTS3ServerMod/* . && \
   rm -R /JTS3ServerMod/JTS3ServerMod-Windows* /JTS3ServerMod/documents/ /JTS3ServerMod/tools/
 
 
-FROM eclipse-temurin:8-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 MAINTAINER Fabian Wünderich <fabian@wuenderich.de>
 ARG VERSION
 ENV JTS3_SERVER_MOD_VERSION=$VERSION

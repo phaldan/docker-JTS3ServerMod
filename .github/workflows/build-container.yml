@@ -2,7 +2,7 @@ name: build-container
 
 on:
   push:
-    branches: [master]
+    branches: [master, new-java]
   schedule:
     # do daily builds
     - cron: '0 0 * * *'
