@@ -1,4 +1,4 @@
-FROM alpine:3.13.5@sha256:69e70a79f2d41ab5d637de98c1e0b055206ba40a8145e7bddb55ccc04e13cf8f
+FROM alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
 
 ENV JTS3_SERVER_MOD_VERSION=6.5.7
 RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
